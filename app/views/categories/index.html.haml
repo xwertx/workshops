@@ -1,19 +1,19 @@
 %h1 Listing categories
 
-%table.table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
+- if current_user and current_user.admin?
+  = link_to 'New Category', new_category_path, class: 'btn btn-success'
 
-  - categories.each do |category|
-    %tr
-      %td= category.name
-      %td= link_to 'Show', category
-      %td= link_to 'Edit', edit_category_path(category)
-      %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Category', new_category_path
+- if categories.count == 0
+  %p
+    %i No categories yet.
+- else
+  %ul.list-group
+    - categories.each do |category|
+      .row
+        .col-md-8
+          %b= link_to category.name, category, class: 'list-group-item'
+        .col-md-4  
+          - if current_user and current_user.admin?
+            %span.badge
+              = link_to 'Edit', edit_category_path(category), class: 'btn btn-warning'
+              = link_to 'Delete', category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

@@ -776,3 +776,1044 @@ Processing by CategoriesController#index as HTML
   Rendered categories/index.html.haml within layouts/application (13.8ms)
   [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
 Completed 200 OK in 131ms (Views: 122.6ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-15 06:15:09 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.haml within layouts/application (14.8ms)
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 133ms (Views: 123.5ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2015-06-15 06:15:12 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"  WHERE "products"."category_id" = $1[0m  [["category_id", 1]]
+  Rendered products/_form.html.haml (19.1ms)
+  Rendered categories/show.html.haml within layouts/application (73.4ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 116ms (Views: 112.7ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2015-06-15 06:15:15 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (2.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.haml within layouts/application (5.3ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 86ms (Views: 82.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/categories/1/edit" for 127.0.0.1 at 2015-06-15 06:15:17 -0700
+Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered categories/_form.html.haml (6.6ms)
+  Rendered categories/edit.html.haml within layouts/application (10.3ms)
+Completed 200 OK in 57ms (Views: 54.0ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/categories/1" for 127.0.0.1 at 2015-06-15 06:15:19 -0700
+Processing by CategoriesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/2JDILK2c/a7q3iwQMP7iLgMZ3Qafiab6GEdWTE2O3Q=", "category"=>{"name"=>"wert"}, "commit"=>"Save", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.7ms)[0m  SELECT  1 AS one FROM "categories"  WHERE ("categories"."name" = 'wert' AND "categories"."id" != 1) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/categories/1
+Completed 302 Found in 16ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2015-06-15 06:15:19 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products"  WHERE "products"."category_id" = $1[0m  [["category_id", 1]]
+  Rendered products/_form.html.haml (2.3ms)
+  Rendered categories/show.html.haml within layouts/application (6.8ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 136ms (Views: 134.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2015-06-15 06:15:21 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.haml within layouts/application (5.9ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 60ms (Views: 58.2ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/categories/1" for 127.0.0.1 at 2015-06-15 06:15:24 -0700
+Processing by CategoriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/2JDILK2c/a7q3iwQMP7iLgMZ3Qafiab6GEdWTE2O3Q=", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "categories" WHERE "categories"."id" = $1  [["id", 1]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 11ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2015-06-15 06:15:24 -0700
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.haml within layouts/application (1.8ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 39ms (Views: 37.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2015-06-15 06:15:25 -0700
+Processing by CategoriesController#new as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered categories/_form.html.haml (9.8ms)
+  Rendered categories/new.html.haml within layouts/application (14.3ms)
+Completed 200 OK in 90ms (Views: 84.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/categories" for 127.0.0.1 at 2015-06-15 06:15:28 -0700
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/2JDILK2c/a7q3iwQMP7iLgMZ3Qafiab6GEdWTE2O3Q=", "category"=>{"name"=>"d"}, "commit"=>"Save"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCategory Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'd' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-06-15 13:15:28.226114"], ["name", "d"], ["updated_at", "2015-06-15 13:15:28.226114"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/categories/2
+Completed 302 Found in 14ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2015-06-15 06:15:28 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCategory Load (0.5ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products"  WHERE "products"."category_id" = $1[0m  [["category_id", 2]]
+  Rendered products/_form.html.haml (2.6ms)
+  Rendered categories/show.html.haml within layouts/application (8.2ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 59ms (Views: 57.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/categories/2/products" for 127.0.0.1 at 2015-06-15 06:15:35 -0700
+
+SyntaxError (/home/wert/netguru/workshops/app/controllers/products_controller.rb:58: syntax error, unexpected tSTRING_DEND, expecting keyword_end):
+  app/controllers/products_controller.rb:58: syntax error, unexpected tSTRING_DEND, expecting keyword_end
+
+
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.3ms)
+
+
+Started POST "/categories/2/products" for 127.0.0.1 at 2015-06-15 06:16:39 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/2JDILK2c/a7q3iwQMP7iLgMZ3Qafiab6GEdWTE2O3Q=", "product"=>{"title"=>"ddd", "description"=>"ddd", "price"=>"23"}, "commit"=>"Save", "category_id"=>"2"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("created_at", "description", "price", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2015-06-15 13:16:39.537312"], ["description", "ddd"], ["price", 23.0], ["title", "ddd"], ["updated_at", "2015-06-15 13:16:39.537312"], ["user_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "products" SET "category_id" = $1, "updated_at" = $2 WHERE "products"."id" = 2  [["category_id", 2], ["updated_at", "2015-06-15 13:16:39.562394"]]
+  [1m[36m (12.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/categories/2/products/2
+Completed 302 Found in 108ms (ActiveRecord: 22.6ms)
+
+
+Started GET "/categories/2/products/2" for 127.0.0.1 at 2015-06-15 06:16:39 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"category_id"=>"2", "id"=>"2"}
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered reviews/_form.html.haml (52.7ms)
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews"  WHERE "reviews"."product_id" = $1[0m  [["product_id", 2]]
+  Rendered collection (0.0ms)
+  Rendered products/show.html.haml within layouts/application (68.6ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 189ms (Views: 185.5ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/categories/2/products/2/reviews" for 127.0.0.1 at 2015-06-15 06:16:47 -0700
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/2JDILK2c/a7q3iwQMP7iLgMZ3Qafiab6GEdWTE2O3Q=", "review"=>{"content"=>"wewe", "rating"=>"4"}, "commit"=>"Save", "category_id"=>"2", "product_id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (2.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "reviews" ("content", "created_at", "rating", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "wewe"], ["created_at", "2015-06-15 13:16:47.711098"], ["rating", 4], ["updated_at", "2015-06-15 13:16:47.711098"], ["user_id", 1]]
+  [1m[35m (4.8ms)[0m  COMMIT
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "reviews" SET "product_id" = $1, "updated_at" = $2 WHERE "reviews"."id" = 1[0m  [["product_id", 2], ["updated_at", "2015-06-15 13:16:47.728711"]]
+  [1m[35m (3.8ms)[0m  COMMIT
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+Redirected to http://localhost:3000/categories/2/products/2
+Completed 302 Found in 32ms (ActiveRecord: 13.5ms)
+
+
+Started GET "/categories/2/products/2" for 127.0.0.1 at 2015-06-15 06:16:47 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"category_id"=>"2", "id"=>"2"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered reviews/_form.html.haml (6.4ms)
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews"  WHERE "reviews"."product_id" = $1[0m  [["product_id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered reviews/_review.html.haml (3.3ms)
+  Rendered products/show.html.haml within layouts/application (18.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 55ms (Views: 52.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/categories/2/products" for 127.0.0.1 at 2015-06-15 06:16:51 -0700
+Processing by ProductsController#index as HTML
+  Parameters: {"category_id"=>"2"}
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"  WHERE "products"."category_id" = $1[0m  [["category_id", 2]]
+  Rendered products/index.html.haml within layouts/application (7.4ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 53ms (Views: 48.5ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/categories/2/products/2" for 127.0.0.1 at 2015-06-15 06:16:56 -0700
+Processing by ProductsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/2JDILK2c/a7q3iwQMP7iLgMZ3Qafiab6GEdWTE2O3Q=", "category_id"=>"2", "id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "products" WHERE "products"."id" = $1  [["id", 2]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (1.1ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+Redirected to http://localhost:3000/categories/2
+Completed 302 Found in 13ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2015-06-15 06:16:56 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"  WHERE "products"."category_id" = $1  [["category_id", 2]]
+  Rendered products/_form.html.haml (6.4ms)
+  Rendered categories/show.html.haml within layouts/application (14.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 51ms (Views: 49.8ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/categories/2/products" for 127.0.0.1 at 2015-06-15 06:17:05 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/2JDILK2c/a7q3iwQMP7iLgMZ3Qafiab6GEdWTE2O3Q=", "product"=>{"title"=>"wert", "description"=>"wewe", "price"=>"22333"}, "commit"=>"Save", "category_id"=>"2"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "products" ("created_at", "description", "price", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2015-06-15 13:17:05.097789"], ["description", "wewe"], ["price", 22333.0], ["title", "wert"], ["updated_at", "2015-06-15 13:17:05.097789"], ["user_id", 1]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (2.1ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "products" SET "category_id" = $1, "updated_at" = $2 WHERE "products"."id" = 3  [["category_id", 2], ["updated_at", "2015-06-15 13:17:05.113833"]]
+  [1m[36m (22.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/categories/2/products/3
+Completed 302 Found in 46ms (ActiveRecord: 27.4ms)
+
+
+Started GET "/categories/2/products/3" for 127.0.0.1 at 2015-06-15 06:17:05 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"category_id"=>"2", "id"=>"3"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered reviews/_form.html.haml (7.7ms)
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews"  WHERE "reviews"."product_id" = $1[0m  [["product_id", 3]]
+  Rendered collection (0.1ms)
+  Rendered products/show.html.haml within layouts/application (15.9ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 55ms (Views: 53.0ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/categories/2/products/3/reviews" for 127.0.0.1 at 2015-06-15 06:17:16 -0700
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/2JDILK2c/a7q3iwQMP7iLgMZ3Qafiab6GEdWTE2O3Q=", "review"=>{"content"=>"ewew", "rating"=>"3"}, "commit"=>"Save", "category_id"=>"2", "product_id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "reviews" ("content", "created_at", "rating", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "ewew"], ["created_at", "2015-06-15 13:17:16.292345"], ["rating", 3], ["updated_at", "2015-06-15 13:17:16.292345"], ["user_id", 1]]
+  [1m[35m (1.5ms)[0m  COMMIT
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "reviews" SET "product_id" = $1, "updated_at" = $2 WHERE "reviews"."id" = 2[0m  [["product_id", 3], ["updated_at", "2015-06-15 13:17:16.300201"]]
+  [1m[35m (27.8ms)[0m  COMMIT
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+Redirected to http://localhost:3000/categories/2/products/3
+Completed 302 Found in 52ms (ActiveRecord: 33.6ms)
+
+
+Started GET "/categories/2/products/3" for 127.0.0.1 at 2015-06-15 06:17:16 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"category_id"=>"2", "id"=>"3"}
+  [1m[35mProduct Load (0.5ms)[0m  SELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategory Load (0.9ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered reviews/_form.html.haml (16.5ms)
+  [1m[36mReview Load (0.5ms)[0m  [1mSELECT "reviews".* FROM "reviews"  WHERE "reviews"."product_id" = $1[0m  [["product_id", 3]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered reviews/_review.html.haml (1.7ms)
+  Rendered products/show.html.haml within layouts/application (30.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 81ms (Views: 78.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/categories/2/products" for 127.0.0.1 at 2015-06-15 06:17:23 -0700
+Processing by ProductsController#index as HTML
+  Parameters: {"category_id"=>"2"}
+  [1m[35mCategory Load (2.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mProduct Load (0.5ms)[0m  [1mSELECT "products".* FROM "products"  WHERE "products"."category_id" = $1[0m  [["category_id", 2]]
+  Rendered products/index.html.haml within layouts/application (2.0ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 47ms (Views: 39.4ms | ActiveRecord: 3.3ms)
+
+
+Started DELETE "/categories/2/products/3" for 127.0.0.1 at 2015-06-15 06:17:27 -0700
+Processing by ProductsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/2JDILK2c/a7q3iwQMP7iLgMZ3Qafiab6GEdWTE2O3Q=", "category_id"=>"2", "id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "products" WHERE "products"."id" = $1  [["id", 3]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+Redirected to http://localhost:3000/categories/2
+Completed 302 Found in 10ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2015-06-15 06:17:27 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"  WHERE "products"."category_id" = $1  [["category_id", 2]]
+  Rendered products/_form.html.haml (3.1ms)
+  Rendered categories/show.html.haml within layouts/application (8.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 42ms (Views: 40.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/categories/2/products" for 127.0.0.1 at 2015-06-15 06:17:42 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/2JDILK2c/a7q3iwQMP7iLgMZ3Qafiab6GEdWTE2O3Q=", "product"=>{"title"=>"we", "description"=>"wewe", "price"=>"23232"}, "commit"=>"Save", "category_id"=>"2"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("created_at", "description", "price", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2015-06-15 13:17:42.247005"], ["description", "wewe"], ["price", 23232.0], ["title", "we"], ["updated_at", "2015-06-15 13:17:42.247005"], ["user_id", 1]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "products" SET "category_id" = $1, "updated_at" = $2 WHERE "products"."id" = 4  [["category_id", 2], ["updated_at", "2015-06-15 13:17:42.253529"]]
+  [1m[36m (20.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/categories/2/products/4
+Completed 302 Found in 35ms (ActiveRecord: 25.1ms)
+
+
+Started GET "/categories/2/products/4" for 127.0.0.1 at 2015-06-15 06:17:42 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"category_id"=>"2", "id"=>"4"}
+  [1m[35mProduct Load (0.4ms)[0m  SELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered reviews/_form.html.haml (8.9ms)
+  [1m[36mReview Load (0.5ms)[0m  [1mSELECT "reviews".* FROM "reviews"  WHERE "reviews"."product_id" = $1[0m  [["product_id", 4]]
+  Rendered collection (0.0ms)
+  Rendered products/show.html.haml within layouts/application (17.6ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 64ms (Views: 61.9ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/categories/2/products/4/reviews" for 127.0.0.1 at 2015-06-15 06:17:46 -0700
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/2JDILK2c/a7q3iwQMP7iLgMZ3Qafiab6GEdWTE2O3Q=", "review"=>{"content"=>"wewew", "rating"=>"3"}, "commit"=>"Save", "category_id"=>"2", "product_id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "reviews" ("content", "created_at", "rating", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "wewew"], ["created_at", "2015-06-15 13:17:46.619101"], ["rating", 3], ["updated_at", "2015-06-15 13:17:46.619101"], ["user_id", 1]]
+  [1m[35m (2.8ms)[0m  COMMIT
+  [1m[36mProduct Load (2.2ms)[0m  [1mSELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "reviews" SET "product_id" = $1, "updated_at" = $2 WHERE "reviews"."id" = 3[0m  [["product_id", 4], ["updated_at", "2015-06-15 13:17:46.636995"]]
+  [1m[35m (21.4ms)[0m  COMMIT
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+Redirected to http://localhost:3000/categories/2/products/4
+Completed 302 Found in 50ms (ActiveRecord: 28.3ms)
+
+
+Started GET "/categories/2/products/4" for 127.0.0.1 at 2015-06-15 06:17:46 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"category_id"=>"2", "id"=>"4"}
+  [1m[35mProduct Load (0.4ms)[0m  SELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered reviews/_form.html.haml (5.4ms)
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews"  WHERE "reviews"."product_id" = $1[0m  [["product_id", 4]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered reviews/_review.html.haml (1.2ms)
+  Rendered products/show.html.haml within layouts/application (15.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 52ms (Views: 49.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/categories/2/products" for 127.0.0.1 at 2015-06-15 06:17:48 -0700
+Processing by ProductsController#index as HTML
+  Parameters: {"category_id"=>"2"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  WHERE "products"."category_id" = $1[0m  [["category_id", 2]]
+  Rendered products/index.html.haml within layouts/application (3.7ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 85ms (Views: 81.4ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-06-15 06:17:51 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/2JDILK2c/a7q3iwQMP7iLgMZ3Qafiab6GEdWTE2O3Q="}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 30ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-15 06:17:51 -0700
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.haml within layouts/application (4.4ms)
+Completed 200 OK in 46ms (Views: 45.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-06-15 06:17:55 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.haml (3.5ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (33.9ms)
+Completed 200 OK in 74ms (Views: 72.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-06-15 06:18:24 -0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zZcf8Qu+2B2Hvg7FI8F9+v8shMFPD0ZX6SxSTDC8bW4=", "user"=>{"firstname"=>"wew", "lastname"=>"wew", "email"=>"wert1@wert.pl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.9ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'wert1@wert.pl' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "encrypted_password", "firstname", "lastname", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2015-06-15 13:18:25.018267"], ["email", "wert1@wert.pl"], ["encrypted_password", "$2a$10$D23S1Sbpg9HRNfxUzj3ycuLsQhqjFePuLGs3TAR46i3xnjhzNFMAq"], ["firstname", "wew"], ["lastname", "wew"], ["updated_at", "2015-06-15 13:18:25.018267"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "current_sign_in_ip" = $2, "last_sign_in_at" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = 2  [["current_sign_in_at", "2015-06-15 13:18:25.021733"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2015-06-15 13:18:25.021733"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-06-15 13:18:25.022892"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 103ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-15 06:18:25 -0700
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.haml within layouts/application (2.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 39ms (Views: 38.1ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/categories/2" for 127.0.0.1 at 2015-06-15 06:18:29 -0700
+Processing by CategoriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"zZcf8Qu+2B2Hvg7FI8F9+v8shMFPD0ZX6SxSTDC8bW4=", "id"=>"2"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 2]]
+  [1m[35m (1.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 8ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2015-06-15 06:18:29 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.haml within layouts/application (1.6ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 38ms (Views: 36.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2015-06-15 06:18:31 -0700
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered categories/_form.html.haml (14.1ms)
+  Rendered categories/new.html.haml within layouts/application (19.6ms)
+Completed 200 OK in 103ms (Views: 97.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at 2015-06-15 06:18:34 -0700
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zZcf8Qu+2B2Hvg7FI8F9+v8shMFPD0ZX6SxSTDC8bW4=", "category"=>{"name"=>"wew"}, "commit"=>"Save"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mCategory Exists (0.4ms)[0m  SELECT  1 AS one FROM "categories"  WHERE "categories"."name" = 'wew' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-06-15 13:18:34.656654"], ["name", "wew"], ["updated_at", "2015-06-15 13:18:34.656654"]]
+  [1m[35m (1.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/categories/3
+Completed 302 Found in 21ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/categories/3" for 127.0.0.1 at 2015-06-15 06:18:34 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"  WHERE "products"."category_id" = $1  [["category_id", 3]]
+  Rendered products/_form.html.haml (2.4ms)
+  Rendered categories/show.html.haml within layouts/application (7.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 48ms (Views: 47.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/categories/3/products" for 127.0.0.1 at 2015-06-15 06:18:39 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zZcf8Qu+2B2Hvg7FI8F9+v8shMFPD0ZX6SxSTDC8bW4=", "product"=>{"title"=>"ewew", "description"=>"wew", "price"=>"22"}, "commit"=>"Save", "category_id"=>"3"}
+  [1m[35mUser Load (3.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (1.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "products" ("created_at", "description", "price", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2015-06-15 13:18:39.786265"], ["description", "wew"], ["price", 22.0], ["title", "ewew"], ["updated_at", "2015-06-15 13:18:39.786265"], ["user_id", 2]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.1ms)[0m  UPDATE "products" SET "category_id" = $1, "updated_at" = $2 WHERE "products"."id" = 5  [["category_id", 3], ["updated_at", "2015-06-15 13:18:39.794899"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/categories/3/products/5
+Completed 302 Found in 24ms (ActiveRecord: 10.9ms)
+
+
+Started GET "/categories/3/products/5" for 127.0.0.1 at 2015-06-15 06:18:39 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"category_id"=>"3", "id"=>"5"}
+  [1m[35mProduct Load (0.4ms)[0m  SELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered reviews/_form.html.haml (6.6ms)
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews"  WHERE "reviews"."product_id" = $1[0m  [["product_id", 5]]
+  Rendered collection (0.0ms)
+  Rendered products/show.html.haml within layouts/application (15.8ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 63ms (Views: 59.7ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/categories/3/products/5/reviews" for 127.0.0.1 at 2015-06-15 06:18:43 -0700
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zZcf8Qu+2B2Hvg7FI8F9+v8shMFPD0ZX6SxSTDC8bW4=", "review"=>{"content"=>"wew", "rating"=>"2"}, "commit"=>"Save", "category_id"=>"3", "product_id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "reviews" ("content", "created_at", "rating", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "wew"], ["created_at", "2015-06-15 13:18:44.006470"], ["rating", 2], ["updated_at", "2015-06-15 13:18:44.006470"], ["user_id", 2]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "reviews" SET "product_id" = $1, "updated_at" = $2 WHERE "reviews"."id" = 4[0m  [["product_id", 5], ["updated_at", "2015-06-15 13:18:44.011312"]]
+  [1m[35m (22.6ms)[0m  COMMIT
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+Redirected to http://localhost:3000/categories/3/products/5
+Completed 302 Found in 37ms (ActiveRecord: 25.1ms)
+
+
+Started GET "/categories/3/products/5" for 127.0.0.1 at 2015-06-15 06:18:44 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"category_id"=>"3", "id"=>"5"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered reviews/_form.html.haml (6.9ms)
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews"  WHERE "reviews"."product_id" = $1[0m  [["product_id", 5]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered reviews/_review.html.haml (1.5ms)
+  Rendered products/show.html.haml within layouts/application (16.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 51ms (Views: 48.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/categories/3/products" for 127.0.0.1 at 2015-06-15 06:18:45 -0700
+Processing by ProductsController#index as HTML
+  Parameters: {"category_id"=>"3"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT "products".* FROM "products"  WHERE "products"."category_id" = $1[0m  [["category_id", 3]]
+  Rendered products/index.html.haml within layouts/application (2.4ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 48ms (Views: 45.0ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-06-15 06:18:50 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"zZcf8Qu+2B2Hvg7FI8F9+v8shMFPD0ZX6SxSTDC8bW4="}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-15 06:18:50 -0700
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.haml within layouts/application (2.2ms)
+Completed 200 OK in 57ms (Views: 56.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-06-15 06:18:53 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.haml (0.5ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (16.9ms)
+Completed 200 OK in 58ms (Views: 56.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-06-15 06:19:01 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZYMxAQnGv3yI7Ug5h0LIQOk7oK+lesbeYzPMPILYr5k=", "user"=>{"email"=>"wert@wert.pl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'wert@wert.pl'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = 1[0m  [["current_sign_in_at", "2015-06-15 13:19:01.260039"], ["sign_in_count", 2], ["updated_at", "2015-06-15 13:19:01.260924"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 133ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-15 06:19:01 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.haml within layouts/application (2.7ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 44ms (Views: 43.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/categories/3" for 127.0.0.1 at 2015-06-15 06:19:03 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"  WHERE "products"."category_id" = $1  [["category_id", 3]]
+  Rendered products/_form.html.haml (3.3ms)
+  Rendered categories/show.html.haml within layouts/application (15.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 50ms (Views: 48.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/categories/3/products" for 127.0.0.1 at 2015-06-15 06:19:14 -0700
+Processing by ProductsController#index as HTML
+  Parameters: {"category_id"=>"3"}
+  [1m[35mCategory Load (2.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mProduct Load (1.7ms)[0m  [1mSELECT "products".* FROM "products"  WHERE "products"."category_id" = $1[0m  [["category_id", 3]]
+  Rendered products/index.html.haml within layouts/application (3.7ms)
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 49ms (Views: 40.8ms | ActiveRecord: 4.8ms)
+
+
+Started DELETE "/categories/3/products/5" for 127.0.0.1 at 2015-06-15 06:19:18 -0700
+Processing by ProductsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"MwOpAIwHhUQTVcdT/F3VDkdmPrE+12k8B3xlCZZGrto=", "category_id"=>"3", "id"=>"5"}
+  [1m[36mUser Load (2.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProduct Load (1.1ms)[0m  SELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "products" WHERE "products"."id" = $1  [["id", 5]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.5ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+Redirected to http://localhost:3000/categories/3
+Completed 302 Found in 17ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/categories/3" for 127.0.0.1 at 2015-06-15 06:19:18 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products"  WHERE "products"."category_id" = $1  [["category_id", 3]]
+  Rendered products/_form.html.haml (2.6ms)
+  Rendered categories/show.html.haml within layouts/application (7.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 55ms (Views: 53.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2015-06-15 06:19:22 -0700
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.haml within layouts/application (3.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 44ms (Views: 42.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2015-06-15 06:59:35 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.haml within layouts/application (43.5ms)
+Completed 500 Internal Server Error in 60ms
+
+SyntaxError (/home/wert/netguru/workshops/app/views/layouts/application.haml:20: syntax error, unexpected tSTRING_BEG, expecting ')'
+...s ' + current_user.firstname  ' ' + current_user.lastname
+...                               ^):
+  app/views/layouts/application.haml:20: syntax error, unexpected tSTRING_BEG, expecting ')'
+
+
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-15 07:00:43 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "categories"
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.haml within layouts/application (7.1ms)
+Completed 500 Internal Server Error in 16ms
+
+SyntaxError (/home/wert/netguru/workshops/app/views/layouts/application.haml:20: syntax error, unexpected tSTRING_BEG, expecting ')'
+...s ' + current_user.firstname  ' ' + current_user.lastname
+...                               ^):
+  app/views/layouts/application.haml:20: syntax error, unexpected tSTRING_BEG, expecting ')'
+
+
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-15 07:00:45 -0700
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.haml within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 12ms
+
+SyntaxError (/home/wert/netguru/workshops/app/views/layouts/application.haml:20: syntax error, unexpected tSTRING_BEG, expecting ')'
+...s ' + current_user.firstname  ' ' + current_user.lastname
+...                               ^):
+  app/views/layouts/application.haml:20: syntax error, unexpected tSTRING_BEG, expecting ')'
+
+
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-15 07:00:46 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "categories"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.haml within layouts/application (11.2ms)
+Completed 500 Internal Server Error in 29ms
+
+SyntaxError (/home/wert/netguru/workshops/app/views/layouts/application.haml:20: syntax error, unexpected tSTRING_BEG, expecting ')'
+...s ' + current_user.firstname  ' ' + current_user.lastname
+...                               ^):
+  app/views/layouts/application.haml:20: syntax error, unexpected tSTRING_BEG, expecting ')'
+
+
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/wert/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-15 07:03:20 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.haml within layouts/application (58.1ms)
+Completed 200 OK in 150ms (Views: 138.0ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/categories/3" for 127.0.0.1 at 2015-06-15 07:03:24 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "products"  WHERE "products"."category_id" = $1[0m  [["category_id", 3]]
+  Rendered products/_list.html.haml (8.4ms)
+  Rendered categories/show.html.haml within layouts/application (81.9ms)
+Completed 200 OK in 119ms (Views: 114.9ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2015-06-15 07:03:28 -0700
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (1.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (1.4ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.haml within layouts/application (13.0ms)
+Completed 200 OK in 52ms (Views: 48.1ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-15 07:03:32 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "categories"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.haml within layouts/application (5.5ms)
+Completed 200 OK in 45ms (Views: 44.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/categories/3" for 127.0.0.1 at 2015-06-15 07:03:40 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCategory Load (0.5ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "products"  WHERE "products"."category_id" = $1  [["category_id", 3]]
+  Rendered products/_list.html.haml (1.3ms)
+  Rendered categories/show.html.haml within layouts/application (9.7ms)
+Completed 200 OK in 48ms (Views: 46.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/categories/3/products/new" for 127.0.0.1 at 2015-06-15 07:03:41 -0700
+Processing by ProductsController#new as HTML
+  Parameters: {"category_id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered products/_form.html.haml (24.3ms)
+  Rendered products/new.html.haml within layouts/application (27.0ms)
+Completed 200 OK in 70ms (Views: 66.9ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/categories/3/products" for 127.0.0.1 at 2015-06-15 07:03:46 -0700
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MwOpAIwHhUQTVcdT/F3VDkdmPrE+12k8B3xlCZZGrto=", "product"=>{"title"=>"ewew", "description"=>"wew", "price"=>"w22"}, "commit"=>"Save", "category_id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "products" ("created_at", "description", "price", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2015-06-15 14:03:46.150231"], ["description", "wew"], ["price", 0.0], ["title", "ewew"], ["updated_at", "2015-06-15 14:03:46.150231"], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "products" SET "category_id" = $1, "updated_at" = $2 WHERE "products"."id" = 6[0m  [["category_id", 3], ["updated_at", "2015-06-15 14:03:46.160178"]]
+  [1m[35m (1.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/categories/3/products/6
+Completed 302 Found in 30ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/categories/3/products/6" for 127.0.0.1 at 2015-06-15 07:03:46 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"category_id"=>"3", "id"=>"6"}
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered reviews/_form.html.haml (51.9ms)
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "reviews"  WHERE "reviews"."product_id" = $1  [["product_id", 6]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews"  WHERE "reviews"."product_id" = $1[0m  [["product_id", 6]]
+  Rendered collection (0.0ms)
+  Rendered products/show.html.haml within layouts/application (73.0ms)
+Completed 200 OK in 125ms (Views: 120.7ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/categories/3/products/6/reviews" for 127.0.0.1 at 2015-06-15 07:03:52 -0700
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MwOpAIwHhUQTVcdT/F3VDkdmPrE+12k8B3xlCZZGrto=", "review"=>{"content"=>"wrew", "rating"=>"2"}, "commit"=>"Save", "category_id"=>"3", "product_id"=>"6"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "reviews" ("content", "created_at", "rating", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "wrew"], ["created_at", "2015-06-15 14:03:52.719402"], ["rating", 2], ["updated_at", "2015-06-15 14:03:52.719402"], ["user_id", 1]]
+  [1m[36m (3.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "reviews" SET "product_id" = $1, "updated_at" = $2 WHERE "reviews"."id" = 5  [["product_id", 6], ["updated_at", "2015-06-15 14:03:52.731417"]]
+  [1m[36m (18.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+Redirected to http://localhost:3000/categories/3/products/6
+Completed 302 Found in 43ms (ActiveRecord: 23.6ms)
+
+
+Started GET "/categories/3/products/6" for 127.0.0.1 at 2015-06-15 07:03:52 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"category_id"=>"3", "id"=>"6"}
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCategory Load (0.6ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered reviews/_form.html.haml (5.7ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "reviews"  WHERE "reviews"."product_id" = $1  [["product_id", 6]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews"  WHERE "reviews"."product_id" = $1[0m  [["product_id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered reviews/_review.html.haml (3.5ms)
+  Rendered products/show.html.haml within layouts/application (24.6ms)
+Completed 200 OK in 64ms (Views: 61.2ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/categories/3/products" for 127.0.0.1 at 2015-06-15 07:03:54 -0700
+Processing by ProductsController#index as HTML
+  Parameters: {"category_id"=>"3"}
+  [1m[36mCategory Load (2.4ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (2.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "products"  WHERE "products"."category_id" = $1[0m  [["category_id", 3]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"  WHERE "products"."category_id" = $1  [["category_id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered products/_list.html.haml (4.9ms)
+  Rendered products/index.html.haml within layouts/application (13.5ms)
+Completed 200 OK in 58ms (Views: 49.5ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-15 07:04:02 -0700
+Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (1.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.haml within layouts/application (7.9ms)
+Completed 200 OK in 56ms (Views: 53.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/categories/3" for 127.0.0.1 at 2015-06-15 07:04:04 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "products"  WHERE "products"."category_id" = $1[0m  [["category_id", 3]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"  WHERE "products"."category_id" = $1  [["category_id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered products/_list.html.haml (5.1ms)
+  Rendered categories/show.html.haml within layouts/application (14.2ms)
+Completed 200 OK in 47ms (Views: 44.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/categories/3/products/6" for 127.0.0.1 at 2015-06-15 07:04:06 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"category_id"=>"3", "id"=>"6"}
+  [1m[35mProduct Load (0.4ms)[0m  SELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered reviews/_form.html.haml (18.2ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "reviews"  WHERE "reviews"."product_id" = $1[0m  [["product_id", 6]]
+  [1m[35mReview Load (0.2ms)[0m  SELECT "reviews".* FROM "reviews"  WHERE "reviews"."product_id" = $1  [["product_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered reviews/_review.html.haml (1.0ms)
+  Rendered products/show.html.haml within layouts/application (34.8ms)
+Completed 200 OK in 93ms (Views: 90.9ms | ActiveRecord: 2.1ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-06-15 07:04:10 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"MwOpAIwHhUQTVcdT/F3VDkdmPrE+12k8B3xlCZZGrto="}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-15 07:04:10 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.haml within layouts/application (7.1ms)
+Completed 200 OK in 48ms (Views: 47.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories/3" for 127.0.0.1 at 2015-06-15 07:04:11 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "products"  WHERE "products"."category_id" = $1  [["category_id", 3]]
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"  WHERE "products"."category_id" = $1[0m  [["category_id", 3]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered products/_list.html.haml (8.9ms)
+  Rendered categories/show.html.haml within layouts/application (24.9ms)
+Completed 200 OK in 72ms (Views: 70.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-06-15 07:04:13 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.haml (1.8ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (16.6ms)
+Completed 200 OK in 52ms (Views: 49.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-06-15 07:04:20 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z+O80P7sujPDfhq2Qvedi4sofFV69Q8/vspsRH9jpvw=", "user"=>{"email"=>"wert1@wert.pl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'wert1@wert.pl'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = 2[0m  [["current_sign_in_at", "2015-06-15 14:04:20.679284"], ["sign_in_count", 2], ["updated_at", "2015-06-15 14:04:20.680804"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 87ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-15 07:04:20 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "categories"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.haml within layouts/application (4.3ms)
+Completed 200 OK in 37ms (Views: 36.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/categories/3" for 127.0.0.1 at 2015-06-15 07:04:21 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "products"  WHERE "products"."category_id" = $1  [["category_id", 3]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products"  WHERE "products"."category_id" = $1[0m  [["category_id", 3]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered products/_list.html.haml (3.2ms)
+  Rendered categories/show.html.haml within layouts/application (9.9ms)
+Completed 200 OK in 66ms (Views: 64.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/categories/3/products/6" for 127.0.0.1 at 2015-06-15 07:04:23 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"category_id"=>"3", "id"=>"6"}
+  [1m[36mProduct Load (0.8ms)[0m  [1mSELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered reviews/_form.html.haml (10.9ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "reviews"  WHERE "reviews"."product_id" = $1  [["product_id", 6]]
+  [1m[36mReview Load (0.2ms)[0m  [1mSELECT "reviews".* FROM "reviews"  WHERE "reviews"."product_id" = $1[0m  [["product_id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered reviews/_review.html.haml (1.3ms)
+  Rendered products/show.html.haml within layouts/application (33.0ms)
+Completed 200 OK in 77ms (Views: 73.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/categories/3/products" for 127.0.0.1 at 2015-06-15 07:04:25 -0700
+Processing by ProductsController#index as HTML
+  Parameters: {"category_id"=>"3"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "products"  WHERE "products"."category_id" = $1[0m  [["category_id", 3]]
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"  WHERE "products"."category_id" = $1  [["category_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered products/_list.html.haml (4.6ms)
+  Rendered products/index.html.haml within layouts/application (7.9ms)
+Completed 200 OK in 48ms (Views: 44.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/categories/3/products/6" for 127.0.0.1 at 2015-06-15 07:04:27 -0700
+Processing by ProductsController#show as HTML
+  Parameters: {"category_id"=>"3", "id"=>"6"}
+  [1m[35mProduct Load (1.1ms)[0m  SELECT  "products".* FROM "products"  WHERE "products"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered reviews/_form.html.haml (6.3ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "reviews"  WHERE "reviews"."product_id" = $1[0m  [["product_id", 6]]
+  [1m[35mReview Load (0.2ms)[0m  SELECT "reviews".* FROM "reviews"  WHERE "reviews"."product_id" = $1  [["product_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered reviews/_review.html.haml (1.1ms)
+  Rendered products/show.html.haml within layouts/application (23.4ms)
+Completed 200 OK in 63ms (Views: 60.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/categories/3/products" for 127.0.0.1 at 2015-06-15 07:04:31 -0700
+Processing by ProductsController#index as HTML
+  Parameters: {"category_id"=>"3"}
+  [1m[35mCategory Load (0.6ms)[0m  SELECT  "categories".* FROM "categories"  WHERE "categories"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "products"  WHERE "products"."category_id" = $1  [["category_id", 3]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products"  WHERE "products"."category_id" = $1[0m  [["category_id", 3]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered products/_list.html.haml (3.3ms)
+  Rendered products/index.html.haml within layouts/application (8.9ms)
+Completed 200 OK in 45ms (Views: 40.2ms | ActiveRecord: 2.0ms)

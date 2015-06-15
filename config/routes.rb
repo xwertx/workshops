@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     end
   end
   devise_for :users
+  get 'users/show'
   root 'categories#index'
 end

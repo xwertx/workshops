@@ -591,3 +591,7 @@ Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.5ms)
   [1m[35m (1.6ms)[0m  select table_name from information_schema.views where table_schema = 'workshops_test'
   [1m[36m (14.5ms)[0m  [1mTRUNCATE TABLE "users", "categories", "products", "reviews" RESTART IDENTITY CASCADE;[0m
   [1m[35m (0.4ms)[0m  ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "reviews" ENABLE TRIGGER ALL
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "reviews" DISABLE TRIGGER ALL[0m
+  [1m[35m (2.0ms)[0m  select table_name from information_schema.views where table_schema = 'workshops_test'
+  [1m[36m (15.4ms)[0m  [1mTRUNCATE TABLE "users", "categories", "products", "reviews" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "reviews" ENABLE TRIGGER ALL

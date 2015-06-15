@@ -1,21 +1,12 @@
-%h1 Listing products
+%h1
+  = 'Products of '
+  %b
+    = link_to category.name, category_path(category)
+  = ' category:'
 
-%table
-  %tr
-    %th Title
-    %th Description
-    %th Price
-    %th
-    %th
-    %th
+- if user_signed_in?
+  = link_to 'Add new product', new_category_product_path(category), class: 'btn btn-success'
 
-  - products.each do |product|
-    %tr
-      %td= product.title
-      %td= product.description
-      %td= product.price
-      %td= link_to 'Show', category_product_path(product.category, product)
-      %td= link_to 'Edit', edit_category_product_path(product.category, product)
-      %td= link_to 'Destroy', category_product_path(product.category, product), method: :delete, data: { confirm: 'Are you sure?' }
+= render partial: 'products/list', object: category.products
 
 %br

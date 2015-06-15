@@ -1,0 +1,28 @@
+- if list.count == 0
+  %p
+    %i There are no products in this category.
+
+- else
+
+  %table.table
+    %thead
+      %tr
+        %th Title
+        %th Description
+        %th Price
+        %th
+        %th
+        %th
+    %tbody
+      - list.each do |product|
+        %tr
+          %td
+            = link_to product.title, category_product_path(product.category, product)
+          %td= product.description
+          %td= product.price
+          %td= link_to 'Show', category_product_path(product.category, product)
+          - if product.user == current_user
+            %td= link_to 'Edit', edit_category_product_path(product.category, product)
+            %td= link_to 'Delete', category_product_path(product.category, product), method: :delete, data: { confirm: 'Are you sure?' }
+
+%br

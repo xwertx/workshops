@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
 
   def check_owner
     if product.user != current_user
-      redirect_to category_product_url(category, product), :flash => { error: 'Permission denied' }
+      redirect_to category_product_url(category, product), flash[:error] = 'Permission denied' 
     end
   end
 end

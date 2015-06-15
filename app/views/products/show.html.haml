@@ -1,9 +1,10 @@
-%p#notice= notice
-%p#error= flash[:error]
+%h2
+  = "Product title: "
+  %b= product.title
 
 %p
-  %b Title:
-  = product.title
+  %b Category:
+  = link_to product.category.name, category_path(product.category)
 %p
   %b Description:
   = product.description
@@ -11,15 +12,26 @@
   %b Price:
   = product.price
 
-%p
-  %b Category
-  = product.category.name
+%br
+
+- if current_user == product.user
+  = link_to 'Edit product', edit_category_product_path(category.id, product.id),  class: 'btn btn-default'
+= link_to 'Back', category_products_path, class: 'btn btn-default'
+
+%br
+
+- if user_signed_in?
+  %br
+  %h4 Add review:
+  = render 'reviews/form'
 
 %h3 Reviews
-= render 'reviews/form'
+
+- if product.reviews.count == 0
+  %p
+    %i No reviews yet.
+- else
+  %ul.list-group
 
 = render reviews
 
-= link_to 'Edit', edit_category_product_path(category.id, product.id)
-\|
-= link_to 'Back', category_products_path, class: 'btn btn-primary'
