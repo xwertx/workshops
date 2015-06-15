@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   expose_decorated(:reviews, ancestor: :product)
 
   def index
+    self.products = category.products
   end
 
   def show
