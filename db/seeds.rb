@@ -17,10 +17,10 @@ user.password = "ZAQ!2wsx"
 user.password_confirmation = "ZAQ!2wsx"
 user.save!
 
-user1 = User.create!(firstname: Faker::Name.first_name, lastname: Faker::Name.first_name, email: Faker::Internet.email, password: 'zaq12wsx', password_confirmation: 'zaq12wsx')
-user2 = User.create!(firstname: Faker::Name.first_name, lastname: Faker::Name.first_name, email: Faker::Internet.email, password: 'zaq12wsx', password_confirmation: 'zaq12wsx')
-user3 = User.create!(firstname: Faker::Name.first_name, lastname: Faker::Name.first_name, email: Faker::Internet.email, password: 'zaq12wsx', password_confirmation: 'zaq12wsx')
-user4 = User.create!(firstname: Faker::Name.first_name, lastname: Faker::Name.first_name, email: Faker::Internet.email, password: 'zaq12wsx', password_confirmation: 'zaq12wsx')
+user1 = User.create!(firstname: 'Rob', lastname: 'Ken', email: 'rob@gamil.com', password: 'zaq12wsx', password_confirmation: 'zaq12wsx')
+user2 = User.create!(firstname: 'Jon', lastname: 'Bin', email: 'jon@gamil.com', password: 'zaq12wsx', password_confirmation: 'zaq12wsx')
+user3 = User.create!(firstname: 'Anna', lastname: 'Foo', email: 'anna@gamil.com', password: 'zaq12wsx', password_confirmation: 'zaq12wsx')
+user4 = User.create!(firstname: 'Lucy', lastname: 'Bin', email: 'lucy@gamil.com', password: 'zaq12wsx', password_confirmation: 'zaq12wsx')
 
 p 'Category created'
 Category.destroy_all
@@ -31,11 +31,11 @@ category1 = Category.create!(name: 'Games')
 p 'Product created'
 Product.destroy_all
 
-product = Product.create!(title: Faker::Lorem.sentence, price: 10.25, user: user, category: category, description: Faker::Lorem.sentence)
-product1 = Product.create!(title: Faker::Lorem.sentence, price: 14.25, user: user1, category: category1, description: Faker::Lorem.sentence)
+product = Product.create!(title: 'Some say' price: 10.25, user: user, category: category, description: 'aaaaaaaaaaaaaaaaaasssssssssssssssssss')
+product1 = Product.create!(title: 'Super game', price: 14.25, user: user1, category: category1, description: 'vvvvvvvvvvvvvvvvvvvvssssssssssssssssss')
 
 p 'Review created'
 Review.destroy_all
 
-Review.create!( content: Faker::Lorem.sentence, rating: 4, user: user3, product: product)
-Review.create!( content: Faker::Lorem.sentence, rating: 2, user: user4, product: product1)
+Review.create!( content: 'lalaalal', rating: 4, user: user3, product: product)
+Review.create!( content: 'lslsls', rating: 2, user: user4, product: product1)
