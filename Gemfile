@@ -19,7 +19,6 @@ gem 'therubyracer', platforms: :ruby
 gem 'travis'
 gem 'ffaker'
 gem 'konf'
-gem 'faker'
 
 group :development do
   gem 'spring'
