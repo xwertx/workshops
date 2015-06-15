@@ -15,8 +15,8 @@
 %br
 
 - if current_user == product.user
-  = link_to 'Edit product', edit_category_product_path(category.id, product.id),  class: 'btn btn-default'
-= link_to 'Back', category_products_path, class: 'btn btn-default'
+  = link_to 'Edit product', edit_category_product_path(category.id, product.id),  class: 'btn btn-warning glyphicon glyphicon-chevron-pencil'
+= link_to 'Back', category_products_path, class: 'btn btn-default glyphicon glyphicon-chevron-left'
 
 %br
 

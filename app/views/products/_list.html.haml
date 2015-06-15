@@ -20,9 +20,9 @@
             = link_to product.title, category_product_path(product.category, product)
           %td= product.description
           %td= product.price
-          %td= link_to 'Show', category_product_path(product.category, product)
+          %td= link_to 'Show', category_product_path(product.category, product), class: 'btn btn-primary glyphicon glyphicon-th' 
           - if product.user == current_user
-            %td= link_to 'Edit', edit_category_product_path(product.category, product)
-            %td= link_to 'Delete', category_product_path(product.category, product), method: :delete, data: { confirm: 'Are you sure?' }
+            %td= link_to 'Edit', edit_category_product_path(product.category, product), class: 'btn btn-warning glyphicon glyphicon-pencil'
+            %td= link_to 'Delete', category_product_path(product.category, product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger glyphicon glyphicon-remove'
 
 %br

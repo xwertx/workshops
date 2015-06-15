@@ -27,4 +27,4 @@
       %ul.list-group
       = render reviews.sort_by{|t| - t.created_at.to_i}.first(5)
 
-= link_to 'Edit profile', edit_user_registration_path, class: 'btn btn-default'
+= link_to 'Edit profile', edit_user_registration_path, class: 'btn btn-warning glyphicon glyphicon-chevron-pencil'

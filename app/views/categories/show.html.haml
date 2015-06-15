@@ -16,5 +16,5 @@
 
 %br
 - if current_user and current_user.admin?
-  = link_to 'Edit category', edit_category_path(category), class: 'btn btn-default'
-= link_to 'Back', categories_path, class: 'btn btn-default'
+  = link_to 'Edit category', edit_category_path(category), class: 'btn btn-warning'
+= link_to 'Back', categories_path, class: 'btn btn-default glyphicon glyphicon-chevron-left glyphicon glyphicon-pencil'
