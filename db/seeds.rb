@@ -5,3 +5,37 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+p "Creaded some users"
+
+User.destroy_all
+user = User.new
+user.firstname = "Bob"
+user.lastname = "Jones"
+user.email = "bobjones@gmail.com"
+user.admin = true
+user.password = "ZAQ!2wsx"
+user.password_confirmation = "ZAQ!2wsx"
+user.save!
+
+user1 = User.create!(firstname: Faker::Name.first_name, lastname: Faker::Name.first_name, email: Faker::Internet.email, password: 'zaq12wsx', password_confirmation: 'zaq12wsx')
+user2 = User.create!(firstname: Faker::Name.first_name, lastname: Faker::Name.first_name, email: Faker::Internet.email, password: 'zaq12wsx', password_confirmation: 'zaq12wsx')
+user3 = User.create!(firstname: Faker::Name.first_name, lastname: Faker::Name.first_name, email: Faker::Internet.email, password: 'zaq12wsx', password_confirmation: 'zaq12wsx')
+user4 = User.create!(firstname: Faker::Name.first_name, lastname: Faker::Name.first_name, email: Faker::Internet.email, password: 'zaq12wsx', password_confirmation: 'zaq12wsx')
+
+p 'Category created'
+Category.destroy_all
+
+category = Category.create!(name: 'Books')
+category1 = Category.create!(name: 'Games')
+
+p 'Product created'
+Product.destroy_all
+
+product = Product.create!(title: Faker::Lorem.sentence, price: 10.25, user: user, category: category, description: Faker::Lorem.sentence)
+product1 = Product.create!(title: Faker::Lorem.sentence, price: 14.25, user: user1, category: category1, description: Faker::Lorem.sentence)
+
+p 'Review created'
+Review.destroy_all
+
+Review.create!( content: Faker::Lorem.sentence, rating: 4, user: user3, product: product)
+Review.create!( content: Faker::Lorem.sentence, rating: 2, user: user4, product: product1)
