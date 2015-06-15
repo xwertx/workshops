@@ -31,7 +31,7 @@ category1 = Category.create!(name: 'Games')
 p 'Product created'
 Product.destroy_all
 
-product = Product.create!(title: 'Some say' price: 10.25, user: user, category: category, description: 'aaaaaaaaaaaaaaaaaasssssssssssssssssss')
+product = Product.create!(title: 'Some say', price: 10.25, user: user, category: category, description: 'aaaaaaaaaaaaaaaaaasssssssssssssssssss')
 product1 = Product.create!(title: 'Super game', price: 14.25, user: user1, category: category1, description: 'vvvvvvvvvvvvvvvvvvvvssssssssssssssssss')
 
 p 'Review created'
