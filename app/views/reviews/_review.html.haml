@@ -3,3 +3,5 @@
 %p
   %b= review.rating
   %em= review.author
+  %br
+  %small= review.created_at.strftime("%d-%m-%y")
