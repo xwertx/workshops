@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
+  before_action :check_owner, only: [:edit, :update]
   expose(:category)
   expose(:products)
   expose(:product)
@@ -19,7 +21,9 @@ class ProductsController < ApplicationController
   end
 
   def create
-    self.product = Product.new(product_params)
+    prod = Product.new(product_params)
+    prod.user = current_user
+    self.product = prod
 
     if product.save
       category.products << product
@@ -47,5 +51,11 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:title, :description, :price, :category_id)
+  end
+
+  def check_owner
+    if product.user != current_user
+      redirect_to category_product_url(category, product), :flash => { error: 'Permission denied' }
+    end
   end
 end
