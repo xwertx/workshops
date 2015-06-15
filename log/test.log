@@ -500,3 +500,52 @@ Processing by CategoriesController#update as HTML
   [1m[35m (0.1ms)[0m  BEGIN
   [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
 Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "reviews" DISABLE TRIGGER ALL[0m
+  [1m[35m (1.5ms)[0m  select table_name from information_schema.views where table_schema = 'workshops_test'
+  [1m[36m (14.3ms)[0m  [1mTRUNCATE TABLE "users", "categories", "products", "reviews" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "reviews" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "reviews" DISABLE TRIGGER ALL[0m
+  [1m[35m (26.5ms)[0m  TRUNCATE TABLE "users", "categories", "products", "reviews" RESTART IDENTITY CASCADE;
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "reviews" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "reviews" DISABLE TRIGGER ALL
+  [1m[36m (77.3ms)[0m  [1mTRUNCATE TABLE "users", "categories", "products", "reviews" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "reviews" ENABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "reviews" DISABLE TRIGGER ALL[0m
+  [1m[35m (53.5ms)[0m  TRUNCATE TABLE "users", "categories", "products", "reviews" RESTART IDENTITY CASCADE;
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "reviews" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'marguerite@vandervortlarkin.ca' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "email", "encrypted_password", "firstname", "lastname", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2015-06-15 12:16:05.978722"], ["email", "marguerite@vandervortlarkin.ca"], ["encrypted_password", "$2a$04$q1/jMWz7r.Xbm.zU7idaqe3M6s1tJeFpHT/vJY60uMLOoluF//1kS"], ["firstname", "John"], ["lastname", "Doe"], ["updated_at", "2015-06-15 12:16:05.978722"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2015-06-15 12:16:05.995036"], ["name", "MyString"], ["updated_at", "2015-06-15 12:16:05.995036"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("category_id", "created_at", "description", "price", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["category_id", 1], ["created_at", "2015-06-15 12:16:05.998886"], ["description", "MyText"], ["price", 1.5], ["title", "MyString"], ["updated_at", "2015-06-15 12:16:05.998886"], ["user_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'lucius@wehner.name' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "encrypted_password", "firstname", "lastname", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2015-06-15 12:16:06.014051"], ["email", "lucius@wehner.name"], ["encrypted_password", "$2a$04$JodZvEhOoVK5BhZ18eiYbe1caxDarxNqEF.Ep6zU4XqDGdkkEowMq"], ["firstname", "John"], ["lastname", "Doe"], ["updated_at", "2015-06-15 12:16:06.014051"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "reviews" ("content", "created_at", "rating", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "MyText"], ["created_at", "2015-06-15 12:16:06.022729"], ["rating", 2], ["updated_at", "2015-06-15 12:16:06.022729"], ["user_id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "reviews" ("content", "created_at", "rating", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "MyText"], ["created_at", "2015-06-15 12:16:06.025801"], ["rating", 3], ["updated_at", "2015-06-15 12:16:06.025801"], ["user_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "reviews" SET "product_id" = $1, "updated_at" = $2 WHERE "reviews"."id" = 1[0m  [["product_id", 1], ["updated_at", "2015-06-15 12:16:06.028425"]]
+  [1m[35mSQL (0.2ms)[0m  UPDATE "reviews" SET "product_id" = $1, "updated_at" = $2 WHERE "reviews"."id" = 2  [["product_id", 1], ["updated_at", "2015-06-15 12:16:06.030609"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mReview Load (0.2ms)[0m  SELECT "reviews".* FROM "reviews"  WHERE "reviews"."product_id" = $1  [["product_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "reviews"  WHERE "reviews"."product_id" = $1[0m  [["product_id", 1]]
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "categories" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "reviews" DISABLE TRIGGER ALL
+  [1m[36m (29.9ms)[0m  [1mTRUNCATE TABLE "users", "categories", "products", "reviews" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "categories" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "reviews" ENABLE TRIGGER ALL
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'tito@kiehn.us' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "encrypted_password", "firstname", "lastname", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2015-06-15 12:16:06.075083"], ["email", "tito@kiehn.us"], ["encrypted_password", "$2a$04$9APbC6ySiMWk5Tv7KpbEI.4Niz/A7.48V8F7o9PBCdaQ8cCVG1hty"], ["firstname", "John"], ["lastname", "Doe"], ["updated_at", "2015-06-15 12:16:06.075083"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-06-15 12:16:06.078352"], ["name", "MyString"], ["updated_at", "2015-06-15 12:16:06.078352"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
